@@ -1,0 +1,16 @@
+{
+  "name": "angular-desktop-notifications",
+  "version": "0.0.1",
+  "ignore": [
+    "**/.*",
+    "test"
+  ],
+  "dependencies": {
+    "desktop-notify": "https://github.com/ttsvetko/HTML5-Desktop-Notifications.git#master"
+  },
+  "devDependencies": {
+    "angular": "latest",
+    "angular-mocks": "latest",
+    "jquery": "latest"
+  }
+}
