@@ -1,21 +1,15 @@
 (function() {
  'use strict';
-  angular.module('ngDesktopNotifications', []).factory('desktopNotificationsService', function() {
-    var self = {}
-    notify.config({pageVisibility: false, autoClose: 0});
+  angular.module('ngDesktopNotifications', []).factory('desktopNotification', function () {
+    var self = {};
 
-    function dnLog (message) {
+    notify.config({
+      pageVisibility: false,
+      autoClose: 0
+    });
+
+    function dnLog(message) {
       console.log('ngDesktopNotification: ' + message);
-    }
-
-    function notificationIsAllowed(){
-      return notify.permissionLevel() === notify.PERMISSION_GRANTED;
-    }
-
-    function askForEnableNotification(){
-      if (notify.permissionLevel() === notify.PERMISSION_DEFAULT){
-        notify.requestPermission();
-      };
     }
 
     function allParamsIsValid (title, body, imagePath) {
@@ -31,11 +25,21 @@
       return paramsIsValid;
     }
 
+    self.askForEnable = function(cb){
+      if (notify.permissionLevel() === notify.PERMISSION_DEFAULT){
+        notify.requestPermission(cb);
+      };
+    }
+
+    self.isEnabled = function () {
+      return notify.permissionLevel() === notify.PERMISSION_GRANTED;
+    }
+
     self.pushNotify = function(title, body, imagePath) {
-      if (notify.isSupported && notificationIsAllowed() && allParamsIsValid(title, body, imagePath)){
+      if (notify.isSupported && self.isEnabled() && allParamsIsValid(title, body, imagePath)){
         notify.createNotification(title, {body: body, icon: imagePath});
       } else {
-        askForEnableNotification();
+        self.askForEnable();
       }
     }
 
