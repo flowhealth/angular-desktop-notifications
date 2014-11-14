@@ -5,7 +5,7 @@
 
     notify.config({
       pageVisibility: false,
-      autoClose: 0
+      autoClose: 5000
     });
 
     function dnLog(message) {
