@@ -229,6 +229,12 @@
     self.isEnabled = function () {
       return notify.permissionLevel() === notify.PERMISSION_GRANTED;
     };
+    self.notSpecified = function () {
+      return notify.permissionLevel() === notify.PERMISSION_DEFAULT;
+    };
+    self.isBlocked = function () {
+      return notify.permissionLevel() === notify.PERMISSION_DENIED;
+    };
     self.pushNotify = function (title, body, imagePath) {
       if (notify.isSupported && self.isEnabled() && allParamsIsValid(title, body, imagePath)) {
         notify.createNotification(title, {
