@@ -90,6 +90,11 @@
       win.external.msSiteModeActivate();
       notification = { 'ieVerification': ieVerification + 1 };
     }
+
+    if (typeof(options.onclick) == "function"){
+      notification.onclick = options.onclick;
+    }
+
     return notification;
   }
   function getWrapper(notification) {
@@ -235,12 +240,11 @@
     self.isBlocked = function () {
       return notify.permissionLevel() === notify.PERMISSION_DENIED;
     };
-    self.pushNotify = function (title, body, imagePath) {
+    self.pushNotify = function (title, body, imagePath, params) {
       if (notify.isSupported && self.isEnabled() && allParamsIsValid(title, body, imagePath)) {
-        notify.createNotification(title, {
-          body: body,
-          icon: imagePath
-        });
+        params.body = body;
+        params.icon = imagePath;
+        notify.createNotification(title, params);
       } else {
         self.askForEnable();
       }

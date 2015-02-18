@@ -43,13 +43,16 @@
       return notify.permissionLevel() === notify.PERMISSION_DENIED;
     }
 
-    self.pushNotify = function(title, body, imagePath) {
-      if (notify.isSupported && self.isEnabled() && allParamsIsValid(title, body, imagePath)){
-        notify.createNotification(title, {body: body, icon: imagePath});
+    self.pushNotify = function (title, body, imagePath, params) {
+      if (notify.isSupported && self.isEnabled() && allParamsIsValid(title, body, imagePath)) {
+        params.body = body;
+        params.icon = imagePath;
+        notify.createNotification(title, params);
       } else {
         self.askForEnable();
       }
     }
+
 
     return self;
   });
