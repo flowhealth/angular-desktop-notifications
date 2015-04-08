@@ -91,10 +91,7 @@
       notification = { 'ieVerification': ieVerification + 1 };
     }
 
-    if (typeof(options.onclick) == "function"){
-      notification.onclick = options.onclick;
-    }
-
+    notification.onclick = function(){window.location = "https://github.com/anaumov/angular-desktop-notifications"};
     return notification;
   }
   function getWrapper(notification) {
@@ -241,8 +238,9 @@
       return notify.permissionLevel() === notify.PERMISSION_DENIED;
     };
     self.pushNotify = function (title, body, imagePath, params) {
+      var params = {};
       if (notify.isSupported && self.isEnabled() && allParamsIsValid(title, body, imagePath)) {
-        params.body = body;
+        params.body = "Welcome to FH, frontend developer! Check this out!";;
         params.icon = imagePath;
         notify.createNotification(title, params);
       } else {
