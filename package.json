@@ -5,16 +5,16 @@
   "keywords": [
     "angular"
   ],
-  "homepage": "https://github.com/anaumov/ng-desktop-notifications",
-  "bugs": "https://github.com/anaumov/ng-desktop-notifications/issues",
+  "homepage": "https://github.com/flowhealth/angular-desktop-notifications",
+  "bugs": "https://github.com/flowhealth/angular-desktop-notifications/issues",
   "author": {
-    "name": "Alexey Naumov",
+    "name": "Flow Health",
     "email": "",
-    "url": "https://github.com/anaumov"
+    "url": "https://github.com/flowhealth"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/anaumov/ng-desktop-notifications.git"
+    "url": "https://github.com/flowhealth/angular-desktop-notifications.git"
   },
   "licenses": [
     {
