@@ -91,7 +91,9 @@
       notification = { 'ieVerification': ieVerification + 1 };
     }
 
-    notification.onclick = function(){window.location = "https://github.com/anaumov/angular-desktop-notifications"};
+    notification.onclick = function(){
+
+    };
     return notification;
   }
   function getWrapper(notification) {
