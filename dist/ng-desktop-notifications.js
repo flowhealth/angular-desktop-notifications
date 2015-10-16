@@ -242,7 +242,6 @@
     self.pushNotify = function (title, body, imagePath, params) {
       var params = {};
       if (notify.isSupported && self.isEnabled() && allParamsIsValid(title, body, imagePath)) {
-        params.body = "Welcome to FH, frontend developer! Check this out!";;
         params.icon = imagePath;
         notify.createNotification(title, params);
       } else {
