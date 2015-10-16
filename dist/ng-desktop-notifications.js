@@ -242,6 +242,7 @@
     self.pushNotify = function (title, body, imagePath, params) {
       var params = {};
       if (notify.isSupported && self.isEnabled() && allParamsIsValid(title, body, imagePath)) {
+        params.body = body;
         params.icon = imagePath;
         notify.createNotification(title, params);
       } else {
